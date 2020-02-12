@@ -1,0 +1,14 @@
+<h1 class='mb-3'>Restaurants</h1>
+<div class="row">
+  <% @restaurants.reverse.each do |restaurant| %>
+  <div class="col-sm-4 mb-3">
+    <div class="card-body bg-white border">
+      <h4><%= link_to restaurant.name, restaurant_path(restaurant.id), class: 'text-decoration-none' %></h4>
+      <p><%= restaurant.category %></p>
+      <p><%= restaurant.address %></p>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+

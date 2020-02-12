@@ -5,3 +5,19 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Restaurant.destroy_all
+
+restaurants = []
+CATEGORY = %w[chinese italian japanese french belgian]
+
+5.times do
+  hash = {}
+  hash[:name] = Faker::Restaurant.name
+  hash[:address] = Faker::Address.full_address
+  hash[:category] = CATEGORY.sample
+  hash[:phone_number] = Faker::PhoneNumber.phone_number
+  restaurants << hash
+end
+
+Restaurant.create(restaurants)
